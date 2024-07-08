@@ -108,7 +108,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         if let Some(true) = config.general.enable_prometheus_exporter {
             let http_addr_str = format!(
                 "{}:{}",
-                config.general.host, config.general.prometheus_exporter_port
+                config.general.prometheus_exporter_host.unwrap_or(config.general.host), config.general.prometheus_exporter_port
             );
 
             let http_addr = match SocketAddr::from_str(&http_addr_str) {

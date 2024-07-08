@@ -265,6 +265,7 @@ pub struct General {
 
     pub enable_prometheus_exporter: Option<bool>,
 
+    pub prometheus_exporter_host: Option<String>,
     #[serde(default = "General::default_prometheus_exporter_port")]
     pub prometheus_exporter_port: i16,
 
@@ -430,6 +431,7 @@ impl Default for General {
             host: Self::default_host(),
             port: Self::default_port(),
             enable_prometheus_exporter: Some(false),
+            prometheus_exporter_host: None,
             prometheus_exporter_port: 9930,
             connect_timeout: General::default_connect_timeout(),
             idle_timeout: General::default_idle_timeout(),
